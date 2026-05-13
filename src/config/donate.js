@@ -1,8 +1,8 @@
 export const donateConfig = {
-  BTC: "bc1qgtrqfv235qr6j5zryc20ktxxf53y90jeqtzpxt",
-  LTC: "LQrQsuX9Svb242MfQ7rAtGxG8h6mQUj123",
-  ETH: "0xF3E4c940cA7beA75Db7dfDEFeF8A277708559d77",
-  USDT: "0xF3E4c940cA7beA75Db7dfDEFeF8A277708559d77",
-  XRP: "rphykXhCGQAvUQQEKB64KcAg7oDNYnSmHC",
+  BTC: "bc1q895l4gjsz305kxk9etwvmqjsu7ftsnzwjypcsk",
+  ETH: "0x901C304D247ABeFD6A632801f5FdC6A2c1286192",
+  SOL: "4qCoASLvjve5bHiHxbTpdwAdEsQrHW2UCm1MYFWYSDm9",
+  LTC: "LQMvYBDqBTxXsikJxCVVoDXpK1bDamc1SW",
+  XRP: "rL2Zw1h2WrKV5Gtwo8yeDA7aWs39vtJmoX",
 };
 
