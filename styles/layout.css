@@ -1,0 +1,374 @@
+.app {
+  height: 100%;
+  background-color: #FE0000;
+}
+
+.shell {
+  position: relative;
+  height: 100%;
+  isolation: isolate;
+  z-index: 2;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+[data-entered="1"] .shell {
+  animation: shellSlideIn 800ms cubic-bezier(.2, .9, .2, 1) forwards;
+}
+
+@keyframes shellSlideIn {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #FE0000;
+  will-change: transform;
+}
+
+[data-entered="1"] .bg {
+  animation: bgSlideIn 800ms cubic-bezier(.2, .9, .2, 1) forwards;
+}
+
+@keyframes bgSlideIn {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.bg__img {
+  position: absolute;
+  inset: 0 0 0 0%;
+  background-image: url("/assets/images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: none;
+  will-change: transform;
+}
+
+.bg__noise {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  mix-blend-mode: normal;
+  opacity: 1;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.bg__viz {
+  position: absolute;
+  left: 50%;
+  right: 0;
+  bottom: 10px;
+  height: 110px;
+  padding: 0 22px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.viz {
+  width: min(600px, 46vw);
+  height: 110px;
+  display: block;
+  margin: 0 auto;
+  filter: none;
+}
+
+.chrome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+  padding: 60px;
+}
+
+.topbar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.sig {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  pointer-events: auto;
+}
+
+.sig__name {
+  font-family: var(--titles);
+  font-size: clamp(48px, 5.4vw, 48px);
+  letter-spacing: 4px;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 4px #000;
+  paint-order: stroke fill;
+  scale: 1.5;
+  transform-origin: left center;
+}
+
+.sig__role {
+  margin-top: 24px;
+  font-family: var(--subs);
+  font-size: 13px;
+  letter-spacing: 2.3px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: -2px 2px 0 #000;
+}
+
+.stage {
+  position: absolute;
+  left: -120px;
+  bottom: -120px;
+  width: 70%;
+  height: 60%;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.stage>* {
+  pointer-events: auto;
+}
+
+@media (max-width: 1919px) and (min-width: 1200px) {
+  .chrome {
+    padding: clamp(30px, 2.2vw, 42px);
+  }
+
+  .stage {
+    left: clamp(-72px, -4vw, -36px);
+    bottom: clamp(-72px, -4vw, -34px);
+    width: 74%;
+    height: 64%;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 769px) {
+  .chrome {
+    padding: 26px;
+  }
+
+  .stage {
+    left: -14px;
+    bottom: -14px;
+    width: 84%;
+    height: 68%;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-entered="1"] .shell {
+    animation: shellSlideInMobile 800ms cubic-bezier(.2, .9, .2, 1) forwards;
+  }
+
+  [data-entered="1"] .bg {
+    animation: bgSlideInMobile 800ms cubic-bezier(.2, .9, .2, 1) forwards;
+  }
+
+  @keyframes shellSlideInMobile {
+    from {
+      transform: translateY(-100vh);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes bgSlideInMobile {
+    from {
+      transform: translateY(100vh);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .bg__img {
+    background-image: url("/assets/images/bg-mobile.png");
+    background-position: center bottom;
+  }
+
+  .bg__viz {
+    display: none;
+  }
+
+  body {
+    background-color: #FE0000;
+    overflow-y: auto;
+  }
+
+  .chrome {
+    padding: 20px;
+    position: relative;
+    height: auto;
+  }
+
+  .topbar {
+    align-items: center;
+    text-align: center;
+  }
+
+  .sig {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .sig__name {
+    scale: 0.8 !important;
+    transform-origin: center;
+  }
+
+  .stage {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 66vh;
+    min-height: 420px;
+    margin-top: -60px;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px 8px;
+  }
+}
+
+.toasts {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 99;
+  display: grid;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: none;
+  padding: 16px 38px 20px 32px;
+  background: url("/assets/images/toast-bg.png") no-repeat center / 100% 100%;
+  border: none;
+  font-family: var(--subs);
+  letter-spacing: 1.6px;
+  font-size: 14px;
+  color: #fff;
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 240ms ease, opacity 240ms ease;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
+}
+
+.toast[data-out="1"] {
+  transform: translateY(8px);
+  opacity: 0;
+}
+
+.enter {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+}
+
+.enter__scrim {
+  position: absolute;
+  inset: 0;
+  background: #FE0000;
+}
+
+.enter__card {
+  position: relative;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  text-align: center;
+  transform: rotate(-1.2deg);
+  transition: transform 200ms cubic-bezier(.2, .9, .2, 1);
+  cursor: var(--cursor-ptr);
+}
+
+.enter__card:hover {
+  transform: rotate(2deg) scale(1.1);
+}
+
+.enter__title {
+  font-family: var(--titles);
+  font-size: clamp(44px, 7vw, 86px);
+  letter-spacing: 6px;
+  color: #fff;
+  text-shadow: -4px 4px 0 #000;
+}
+
+.enter__sub {
+  margin-top: 8px;
+  font-family: var(--subs);
+  letter-spacing: 2.4px;
+  color: #fff;
+  text-shadow: -3px 3px 0 #000;
+}
+
+
+.enter[data-leaving="1"] .enter__card {
+  animation: gateBlast 400ms ease-in forwards;
+}
+
+.enter[data-leaving="1"] .enter__scrim {
+  display: none;
+}
+
+.enter[data-leaving="1"] {
+  pointer-events: none;
+}
+
+@keyframes gateBlast {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 0;
+    rotate: 400deg;
+  }
+}
+
+@keyframes scrimOut {
+  to {
+    opacity: 0;
+  }
+}
