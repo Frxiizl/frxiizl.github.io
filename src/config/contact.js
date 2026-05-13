@@ -1,8 +1,8 @@
 export const contactConfig = {
-  discordUserId: "603506191053881344",
+  discordUserId: "656838514281021451",
   links: [
-    { label: "Discord", value: "10.tempest.01" },
-    { label: "Email", value: "tempest01.business@gmail.com" },
-    { label: "GitHub", value: "tempasta" },
+    { label: "Discord", value: "expatior" },
+    { label: "Email", value: "frxiizl@gmail.com" },
+    { label: "GitHub", value: "frxiizl" },
   ],
 };
