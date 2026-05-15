@@ -9,7 +9,7 @@ export function createDonateSection({ audio }) {
   const screen = createScreen({ title: "Donate" });
 
 
-  const Currencies = ["BTC", "LTC", "ETH", "USDT", "XRP"];
+  const Currencies = ["BTC", "LTC", "ETH", "XRP"];
   for (const sym of Currencies) {
     const addr = donateConfig[sym] || "";
     const row = createEl("div", { className: "screen__sub", style: "margin-top: 10px;" });
