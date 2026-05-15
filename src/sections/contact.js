@@ -58,9 +58,9 @@ export function createContactSection({ audio }) {
 function getContactHref(item) {
   const label = String(item.label || "").toLowerCase();
 
-  if (label === "discord") return "discord://-/users/603506191053881344";
+  if (label === "discord") return "discord://-/users/656838514281021451";
   if (label === "email") return `mailto:${item.value}`;
-  if (label === "github") return "https://github.com/tempasta";
+  if (label === "github") return "https://github.com/frxiizl";
   return item.value;
 }
 
