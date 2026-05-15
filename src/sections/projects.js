@@ -6,8 +6,8 @@ export function createProjectsSection({ redirectUrl }) {
 
   const screen = createScreen({ title: "Projects" });
 
-  const desc = createEl("div", { className: "screen__sub" }, "This section opens my company site.");
-  const btn = createEl("button", { className: "cta", type: "button", "data-autofocus": "1" }, "Open tsoftworks.llc");
+  const desc = createEl("div", { className: "screen__sub" }, "");
+  const btn = createEl("button", { className: "cta", type: "button", "data-autofocus": "1" }, "");
 
   btn.addEventListener("click", () => {
     window.open(redirectUrl, "_blank", "noopener,noreferrer");
